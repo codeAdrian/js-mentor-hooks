@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 
 interface Country {
   name: string;
@@ -13,22 +13,10 @@ export const ExampleFourth: React.FC<Props> = ({ countries }) => {
   const [filterLetter, setFilterLetter] = useState("A");
   const [someCounter, setSomeCounter] = useState(0);
 
-  const filteredCountries = useMemo(() => {
-    console.log("FILTERING");
-    return countries
-      .filter(({ name }) => name[0].toUpperCase() === filterLetter)
-      .map(({ name }) => name);
-  }, [countries, filterLetter]);
-
-  function changeFilterLetter(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = e.currentTarget;
-
-    if (value.length > 1) {
-      return;
-    }
-
-    setFilterLetter(value.toUpperCase());
-  }
+  const filteredCountries = countries
+    .filter(({ name }) => name[0].toUpperCase() === filterLetter)
+    .map(({ name }) => name);
+  function changeFilterLetter(e: React.ChangeEvent<HTMLInputElement>) {}
 
   function handleCounter() {
     setSomeCounter(someCounter + 1);

@@ -1,38 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const ExampleSecond: React.FC = () => {
-  const [textValue, setTextValue] = useState("");
-  const [selectValue, setSelectValue] = useState("first");
-  const [checkboxValue, setCheckboxValue] = useState("");
-  const [radioValue, setRadioValue] = useState("");
+  function handleFormSubmit(e: React.FormEvent) {}
 
-  function handleFormSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    console.log({ textValue, selectValue, checkboxValue, radioValue });
-  }
+  function handleTextInput(e: React.ChangeEvent<HTMLInputElement>) {}
 
-  function handleTextInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = e.currentTarget;
-    console.log(value);
-    setTextValue(value);
-  }
+  function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {}
 
-  function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {
-    const { value } = e.currentTarget;
-    setSelectValue(value);
-  }
+  function handleCheckbox(e: React.ChangeEvent<HTMLInputElement>) {}
 
-  function handleCheckbox(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value, checked } = e.currentTarget;
-
-    setCheckboxValue(checked ? value : "");
-  }
-
-  function handleRadio(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = e.currentTarget;
-
-    setRadioValue(value);
-  }
+  function handleRadio(e: React.ChangeEvent<HTMLInputElement>) {}
 
   return (
     <>

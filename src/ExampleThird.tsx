@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface Repo {
   name: string;
@@ -6,33 +6,17 @@ interface Repo {
 }
 
 export const ExampleThird: React.FC = () => {
-  const [repo, setRepo] = useState<Repo>();
-  const [isLoading, setIsLoading] = useState(true);
+  const isLoading = true;
+  const repo = { name: "", stargazers_count: 0 };
 
-  function handleClick() {
-    console.log("Document click");
-  }
+  /**
+   * Fetch github stats
+   * "https://api.github.com/search/repositories?q=stars:%3E1&sort=stars"
+   */
 
-  useEffect(() => {
-    fetch("https://api.github.com/search/repositories?q=stars:%3E1&sort=stars")
-      .then((data) => data.json())
-      .then(({ items }) => {
-        setRepo(items[0]);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 5000);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (!isLoading) {
-      document.addEventListener("click", handleClick);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, [isLoading]);
+  /**
+   * Set up click event listener if is not loading
+   */
 
   return (
     <div>
