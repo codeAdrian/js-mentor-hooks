@@ -1,9 +1,26 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { ExampleFirst } from "./ExampleFirst";
+import { ExampleFourth } from "./ExampleFourth";
+import { ExampleSecond } from "./ExampleSecond";
+import { ExampleThird } from "./ExampleThird";
 
-function App() {
-  return <div></div>;
-}
+import countries from "./countries.json";
+import { ExampleFifth } from "./ExampleFifth";
+
+const App: React.FC = () => {
+  return (
+    <>
+      <ExampleFirst />
+      <hr />
+      <ExampleSecond />
+      <hr />
+      <ExampleThird />
+      <hr />
+      <ExampleFourth countries={countries} />
+      <hr />
+      <ExampleFifth />
+    </>
+  );
+};
 
 export default App;
